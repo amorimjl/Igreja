@@ -36,12 +36,16 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 <body>
     <nav class="top-bar expanded" data-topbar role="navigation">
         <ul class="title-area large-3 medium-4 columns">
+            
             <li class="name">
-                <!-- <h1><a href=""><?= $this->fetch('title') ?></a></h1> -->
+            <h1><?= $this->Html->link(__('Igreja Cake'), ['controller' => 'Users', 'action' => 'dashboard']) ?></h1> 
             </li>
         </ul>
         <div class="top-bar-section">
             <ul class="right">
+                <?php if ($username): ?>
+                <li><?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout']) ?></li>
+                <?php endif; ?>
             </ul>
         </div>
     </nav>

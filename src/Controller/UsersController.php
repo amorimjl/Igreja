@@ -118,6 +118,16 @@ class UsersController extends AppController
         return $this->redirect(['action' => 'index']);
     }
 
+    public function dashboard($id = null)
+    { 
+        $this->paginate = [
+        'contain' => ['Roles']
+        ];
+        $users  = $this->paginate($this->Users);
+
+        $this->set(compact('users'));
+    }
+
     public function login()
     {
         if ($this->request->is('post')) {
